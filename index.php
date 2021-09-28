@@ -7,16 +7,16 @@ use App\DailyWeather;
 
 $urlStart = 'http://api.weatherapi.com/v1/forecast.json?key=';
 
+$weatherAppData = new WeatherApp('2d248612548242ecb3180131212809', "Riga");
+$weatherData = json_decode(
+    file_get_contents(
+        $urlStart . $weatherAppData->getKey() .'&q=' . $weatherAppData->getCity() .'&days=3&aqi=no&alerts=no'
+    )
+);
+
 if (isset($_POST['search']))
 {
     $weatherAppData = new WeatherApp('2d248612548242ecb3180131212809', $_POST['searchCity']);
-    $weatherData = json_decode(
-        file_get_contents(
-            $urlStart . $weatherAppData->getKey() .'&q=' . $weatherAppData->getCity() .'&days=3&aqi=no&alerts=no'
-        )
-    );
-} else {
-    $weatherAppData = new WeatherApp('2d248612548242ecb3180131212809', "Riga");
     $weatherData = json_decode(
         file_get_contents(
             $urlStart . $weatherAppData->getKey() .'&q=' . $weatherAppData->getCity() .'&days=3&aqi=no&alerts=no'
