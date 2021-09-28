@@ -1,23 +1,38 @@
 body {
+    background: azure;
     padding-top: 50px;
 }
 
+h2 {
+    text-align: center;
+}
+
+h5 {
+    padding-bottom: 10px;
+}
+
 .weather-border {
-    border: solid coral 4px;
+    background: beige;
+    border: solid bisque 3px;
     width: 30%;
     margin: 5px;
     padding: 30px;
 }
 
 .weather-cards {
-    margin-left: 60px;
+    margin-left: 120px;
 }
 
 .search-city {
-    margin-left: 60px;
+    margin-left: 120px;
 }
 
 .city-name {
-    color: coral;
+    /*text-align: center;*/
+    font-family: "Fira Sans Condensed";
+    color: black;
 }
 
+.condition {
+    padding-top: 20px;
+}

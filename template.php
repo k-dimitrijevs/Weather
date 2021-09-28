@@ -8,50 +8,44 @@
     <title>Weather Application</title>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <h2>Weather Application</h2>
-        <hr>
-    </div>
-
-    <div class="row search-city">
-        <form method="post">
-            <label for="searchCity" class="form-label">City:</label>
-            <input type="text" class="form-control w-25" id="searchCity" name="searchCity" value="Riga"><br>
-
-            <button type="submit" name="search" class="btn btn-primary">Search</button><br><br>
-        </form>
-    </div>
-
-    <div class="row search-city">
-        <h4 class="city-name"><?php echo $_POST['searchCity'] ?></h4>
-    </div>
-
-    <div class="row weather-cards">
-        <div class="col-4 weather-border rounded-3">
-            <h5 class="text-primary title"><?php echo $today->getDate() ?></h5>
-            <p class="text-secondary"><?php echo $today->getCondition() ?></p>
-            <img src="<?php echo $today->getIcon() ?>" class="float-end" alt="Weather icon">
-            <p class="text-secondary"><?php echo "{$today->getAvgTempC()} °C / {$today->getAvgTempF()} °F" ?></p>
-            <p class="text-secondary"><?php echo "{$today->getMaxWindKph()} Max Wind (kp/h)"?></p>
+    <div class="container">
+        <div class="row">
+            <h2>Weather Application</h2>
+            <hr>
         </div>
 
-        <div class="col-4 weather-border rounded-3">
-            <h5 class="text-primary title"><?php echo $tomorrow->getDate() ?></h5>
-            <p class="text-secondary"><?php echo $tomorrow->getCondition() ?></p>
-            <img src="<?php echo $tomorrow->getIcon() ?>" class="float-end" alt="Weather icon">
-            <p class="text-secondary"><?php echo "{$tomorrow->getAvgTempC()} °C / {$tomorrow->getAvgTempF()} °F" ?></p>
-            <p class="text-secondary"><?php echo "{$tomorrow->getMaxWindKph()} Max Wind (kp/h)"?></p>
+        <div class="row search-city">
+            <form method="post">
+                <label for="searchCity" class="form-label">City:</label>
+                <input type="text" class="form-control w-25" id="searchCity" name="searchCity" placeholder="Search by city"><br>
+
+                <button type="submit" name="search" class="btn btn-primary">Search</button><br><br>
+            </form>
         </div>
 
-        <div class="col-4 weather-border rounded-3">
-            <h5 class="text-primary title"><?php echo $dayAfterTomorrow->getDate() ?></h5>
-            <p class="text-secondary"><?php echo $dayAfterTomorrow->getCondition() ?></p>
-            <img src="<?php echo $dayAfterTomorrow->getIcon() ?>" class="float-end" alt="Weather icon">
-            <p class="text-secondary"><?php echo "{$dayAfterTomorrow->getAvgTempC()} °C / {$dayAfterTomorrow->getAvgTempF()} °F" ?></p>
-            <p class="text-secondary"><?php echo "{$dayAfterTomorrow->getMaxWindKph()} Max Wind (kp/h)"?></p>
+        <div class="row search-city">
+            <h3 class="city-name">
+                <?php
+                if (isset($_POST['search']))
+                {
+                    echo $_POST['searchCity'];
+                } else {
+                    echo "Riga";
+                }?>
+            </h3>
+        </div>
+
+        <div class="row weather-cards">
+            <?php foreach ($days as $day): ?>
+                <div class="col-4 weather-border rounded-3">
+                    <h5 class="text-primary"><?php echo $day->getDate() ?></h5>
+                    <p class="text-secondary condition"><?php echo $day->getCondition() ?></p>
+                    <img src="<?php echo $day->getIcon() ?>" class="float-end" alt="Weather icon">
+                    <p class="text-secondary"><?php echo "{$day->getAvgTempC()} °C / {$day->getAvgTempF()} °F" ?></p>
+                    <p class="text-secondary"><?php echo "Max Wind: {$day->getMaxWindKph()}(kp/h)"?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-</div>
 </body>
 </html>
