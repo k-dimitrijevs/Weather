@@ -1,0 +1,23 @@
+body {
+    padding-top: 50px;
+}
+
+.weather-border {
+    border: solid coral 4px;
+    width: 30%;
+    margin: 5px;
+    padding: 30px;
+}
+
+.weather-cards {
+    margin-left: 60px;
+}
+
+.search-city {
+    margin-left: 60px;
+}
+
+.city-name {
+    color: coral;
+}
+

@@ -1,0 +1,11 @@
+{
+  "name": "kristians/weather",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "ext-json": "*"
+  }
+}
