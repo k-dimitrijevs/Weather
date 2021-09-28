@@ -16,7 +16,7 @@
 
         <div class="row search-city">
             <form method="post">
-                <label for="searchCity" class="form-label">City:</label>
+                <label for="searchCity" class="form-label"></label>
                 <input type="text" class="form-control w-25" id="searchCity" name="searchCity" placeholder="Search by city"><br>
 
                 <button type="submit" name="search" class="btn btn-primary">Search</button><br><br>
@@ -55,7 +55,7 @@
                         <h4 class="text-primary"><?php echo $hour->getTime() ?></h4>
                         <p class="text-secondary condition"><?php echo $hour->getCondition() ?></p>
                         <p class="text-secondary"><?php echo "{$hour->getTempC()} °C / {$hour->getTempF()} °F" ?></p>
-                        <p class="text-secondary"><?php echo "{$hour->getWindDir()} / {$hour->getWind()} (kp/h)" ?></p>
+                        <p class="text-secondary"><?php echo "{$hour->getWindDir()} / {$hour->getWind()} (kp/h)"?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
