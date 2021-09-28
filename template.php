@@ -46,6 +46,20 @@
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <div class="row">
+            <div class="row hourly-cards">
+                <?php foreach ($hours as $hour): ?>
+                    <div class="card hour-card" style="width: 180px;">
+                        <img src="<?php echo $hour->getIcon() ?>" class="float-end" alt="Weather icon">
+                        <h4 class="text-primary"><?php echo $hour->getTime() ?></h4>
+                        <p class="text-secondary condition"><?php echo $hour->getCondition() ?></p>
+                        <p class="text-secondary"><?php echo "{$hour->getTempC()} °C / {$hour->getTempF()} °F" ?></p>
+                        <p class="text-secondary"><?php echo "{$hour->getWindDir()} / {$hour->getWind()} (kp/h)" ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -17,7 +17,8 @@ class DailyWeather
         float $avgTempC,
         float $avgTempF,
         float $maxWindKph,
-        string $icon)
+        string $icon
+    )
     {
         $this->date = $date;
         $this->condition = $condition;

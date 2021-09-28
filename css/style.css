@@ -1,6 +1,7 @@
 body {
     background: azure;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 h2 {
@@ -35,4 +36,13 @@ h5 {
 
 .condition {
     padding-top: 20px;
+}
+
+.hourly-cards {
+    padding-top: 2rem;
+    padding-left: 8rem;
+}
+
+.hour-card {
+    margin: 5px;
 }
