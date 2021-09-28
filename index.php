@@ -40,6 +40,7 @@ for ($i = 0; $i < 3; $i++)
 
 for ($j = 0; $j < 6; $j++)
 {
+    if (($currentTime + $j) >= 24) $currentTime = 0;
     $hours[] = new HourlyWeather(
         $weatherData->forecast->forecastday[0]->hour[$currentTime + $j]->time,
         $weatherData->forecast->forecastday[0]->hour[$currentTime + $j]->condition->text,
